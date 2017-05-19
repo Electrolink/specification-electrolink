@@ -7,12 +7,12 @@
 |                     | **getCallbacks**()                                  |
 |                     | **reset**()                                         |
 |                     | **setAckReceipt**(boolean value)                    |
-| USER                | **methodName([data array])                          |
+| USER                | **methodName**([data array])                        |
 
 
 ### ping()
 
-This is ping function, it returns 1 if executed. It's used to check if device is connected and responding in the network.
+Ping function returns 1 if executed. It's used to check if device is connected and responding in the network.
 
 
 Request JSON:
@@ -103,5 +103,77 @@ Return JSON:
   "params": [true],
   "value": "OK"
 }
+```
+
+### getServices()
+
+Returns all public functions and their descriptions that are available for call.
+
+
+Request JSON:
+```
+{
+  "method": "getServices",
+  "params": []
+}
+```
+
+Return JSON:
+```
+{
+    "deleteFile": {
+        "description": "Delete specified file", 
+        "parameters": "path"
+    }, 
+    "diskUsage": {
+        "description": "Get disk space info", 
+        "parameters": "path"
+    }, 
+    "getServices": {
+        "description": "Get available instructions to call", 
+        "parameters": null
+    }, 
+    "getFile": {
+        "description": "Get binary file", 
+        "parameters": "path, 'base64'"
+    }, 
+    "getFileList": {
+        "description": "Get file list in directory", 
+        "parameters": "path"
+    }, 
+    "getFileSize": {
+        "description": "Get file size in bytes", 
+        "parameters": "path"
+    }, 
+    "getInfo": {
+        "description": "Get board info", 
+        "parameters": null
+    }, 
+    "getTextFile": {
+        "description": "Get text file data", 
+        "parameters": "path"
+    }, 
+    "ping": {
+        "description": "Verify if board responds, will respond 1", 
+        "parameters": null
+    }, 
+    "reset": {
+        "description": "Hardware reset electronics", 
+        "parameters": null
+    }, 
+    "setAckReceipt": {
+        "description": "Avis de reception", 
+        "parameters": "true/false"
+    }, 
+    "writeBinaryFile": {
+        "description": "Write data in file", 
+        "parameters": "path, data, waytowrite"
+    }, 
+    "writeTextFile": {
+        "description": "Write data in file", 
+        "parameters": "path, data, waytowrite"
+    }
+}
+
 ```
 
